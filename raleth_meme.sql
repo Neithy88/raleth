@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 04 déc. 2018 à 15:57
+-- Généré le :  mar. 04 déc. 2018 à 16:03
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `meme`
+-- Structure de la table `memes`
 --
 
-DROP TABLE IF EXISTS `meme`;
-CREATE TABLE IF NOT EXISTS `meme` (
+DROP TABLE IF EXISTS `memes`;
+CREATE TABLE IF NOT EXISTS `memes` (
   `id_meme` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE utf8_bin NOT NULL,
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `meme` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `meme_template`
+-- Structure de la table `memes_templates`
 --
 
-DROP TABLE IF EXISTS `meme_template`;
-CREATE TABLE IF NOT EXISTS `meme_template` (
+DROP TABLE IF EXISTS `memes_templates`;
+CREATE TABLE IF NOT EXISTS `memes_templates` (
   `id_template` int(11) NOT NULL,
   `id_meme` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -52,11 +52,11 @@ CREATE TABLE IF NOT EXISTS `meme_template` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `template`
+-- Structure de la table `templates`
 --
 
-DROP TABLE IF EXISTS `template`;
-CREATE TABLE IF NOT EXISTS `template` (
+DROP TABLE IF EXISTS `templates`;
+CREATE TABLE IF NOT EXISTS `templates` (
   `id_template` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE utf8_bin NOT NULL,
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -64,10 +64,10 @@ CREATE TABLE IF NOT EXISTS `template` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Déchargement des données de la table `template`
+-- Déchargement des données de la table `templates`
 --
 
-INSERT INTO `template` (`id_template`, `nom`, `url`) VALUES
+INSERT INTO `templates` (`id_template`, `nom`, `url`) VALUES
 (1, 'Batman Baffe', 'img/batmanbaffe.png'),
 (2, 'Bob l\'Eponge', 'img/bobeponge.png'),
 (3, 'Bouton Bleu', 'img/boutonbleu.png'),
