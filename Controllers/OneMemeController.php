@@ -1,10 +1,47 @@
 <?php
+//   Set the Content Type
 
 include('Models/OneMeme.php');
 
 
 
+// echo $path_parts['dirname'], "\n";
+// echo $path_parts['basename'], "\n";
+// echo $path_parts['extension'], "\n";
+// echo $path_parts['filename'], "\n"; // depuis PHP 5.2.0
 
-include('Views/OneMemeView.php');
+$get_url_template = templateUrl($_GET['id_template']);
+foreach ($get_url_template as $value){
+    $url_template = $value['url'];
+}
+
+header('Content-type: image/png');
+    
+    // Create Image From Existing File
+    $batou = imagecreatefrompng($url_template);
+
+    // Allocate A Color For The Text
+    $black = imagecolorallocate($batou, 0, 0, 0);
+
+    // Set Path to Font File
+    $font_path = 'C:\xampp\htdocs\raleth\impact.ttf';
+
+    // Set Text to Be Printed On Image
+    $text = "This is a batou!";
+
+    // Print Text On Image
+    imagettftext($batou, 30, 0, 0, 200, $black, $font_path, $text);
+
+    // Send Image to Browser
+    imagejpeg($batou);
+
+    // Clear Memory
+    imagedestroy($batou);
+
+    addMeme("oui", "memes/"."oui", $_GET['id_template']);
+
+    
+
+// include('Views/OneMemeView.php');
 
 ?>

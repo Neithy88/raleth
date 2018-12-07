@@ -10,7 +10,7 @@ del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
+fieldset, form, lab	el, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
@@ -47,28 +47,31 @@ table {
 	border-spacing: 0;
 }
 
-/************************************/
-/***************END OF CSS RESET*****/
-/************************************/
+p{
+    text-align: center;
+    margin: 10% 0;
+}
 
-/*ul des templates dans la HomeView*/
-.templates{
+p:hover{
+    cursor: pointer;
+}
+
+html, body{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesboutons{
 	display: flex;
-	flex-wrap: wrap;
-	width: 30%;
+	position: absolute;
+	top: 20px;
+	left: 20px;
 }
 
-/*li des templates dans la HomeView*/
-.mini-templates{
-	display: flex;
-	margin-right: 2px;
+img{
+width: ;
+	display: none;
 }
 
-.mini-templates img{
-	width: auto;
-	height: 70px;
-}
-
-/* *{
-	background: rgb(0,0,0,0.1);
-} */
