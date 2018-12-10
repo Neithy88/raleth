@@ -5,7 +5,6 @@ include('Models/Home.php');
 
 $get_all_templates = getAllTemplates();
 
-
 if(isset($_FILES['fichier'])) {
     $_dossier = 'img/';
     $temp_chemin = $_FILES['fichier']['tmp_name'];
@@ -40,8 +39,6 @@ if(isset($_FILES['fichier'])) {
             echo "Echec de l'envoi";
         }
     }
-    
-    
 }
 
 include('Views/HomeView.php');

@@ -13,12 +13,25 @@ include('Models/OneMeme.php');
 $get_url_template = templateUrl($_GET['id_template']);
 foreach ($get_url_template as $value){
     $url_template = $value['url'];
+    $ext = pathinfo($url_template)['extension'];
 }
 
-header('Content-type: image/png');
-    
-    // Create Image From Existing File
-    $batou = imagecreatefrompng($url_template);
+switch ($ext) {
+    case 'png':
+        header('Content-type: image/png');
+        $batou = imagecreatefrompng($url_template);
+    break;
+
+    case 'jpg':
+        header('Content-type: image/jpg');
+        $batou = imagecreatefromjpeg($url_template);
+    break;
+
+    case 'gif':
+        header('Content-type: image/gif');
+        $batou = imagecreatefromgif($url_template);
+    break;
+}
 
     // Allocate A Color For The Text
     $black = imagecolorallocate($batou, 0, 0, 0);
@@ -31,17 +44,15 @@ header('Content-type: image/png');
 
     // Print Text On Image
     imagettftext($batou, 30, 0, 0, 200, $black, $font_path, $text);
+    // $_GET['nom_meme']
+    $meme = addMeme("non", $_GET['id_template']);
 
     // Send Image to Browser
-    imagejpeg($batou);
+    imagejpeg($batou, $meme);
 
     // Clear Memory
     imagedestroy($batou);
 
-    addMeme("oui", "memes/"."oui", $_GET['id_template']);
-
-    
-
-// include('Views/OneMemeView.php');
+include('Views/OneMemeView.php');
 
 ?>
