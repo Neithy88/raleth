@@ -3,6 +3,7 @@
 
 include('Models/Home.php');
 
+
 $get_all_templates = getAllTemplates();
 
 if(isset($_FILES['fichier'])) {

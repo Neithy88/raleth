@@ -49,7 +49,7 @@ switch ($ext) {
 
     // Send Image to Browser
     imagejpeg($batou, $meme);
-
+    imagejpeg($batou);
     // Clear Memory
     imagedestroy($batou);
 

@@ -28,7 +28,12 @@ include('header.php');
             }
         ?>
     </ul>
-<img src="OneMeme/6" alt="rgd">
+
+    <form action="" method="POST" id="generer">
+            <input type="text" name="id_template" id="template_value">
+            <input type="submit" value="Générer">
+    </form>
+
 <?php
 include('footer.php');
 ?>

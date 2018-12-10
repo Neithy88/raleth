@@ -17,7 +17,8 @@ function templateUrl($id_template){
 function addMeme($meme_nom, $id_template){
     global $dbh;
     $meme_id = $dbh->query('SELECT MAX(id_meme) AS id_meme FROM memes;');
-    $meme_url = "memes/" . $meme_id->fetch()['id_meme']+1 . ".jpg";
+    $meme_new_id = $meme_id->fetch()['id_meme']+1;
+    $meme_url = "memes/" .  $meme_new_id . ".jpg";
     
     $add_meme = $dbh->prepare('INSERT INTO memes(nom, url, id_template) VALUES (?,?,?);');
     $add_meme->execute([$meme_nom, $meme_url, $id_template]);

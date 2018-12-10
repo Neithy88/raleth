@@ -20,4 +20,12 @@ function addTemplate($nom, $url){
     $add_template->execute([$nom, $url]);
 }
 
+function getLastMeme(){
+    global $dbh;
+
+    $last_meme = $dbh->query('SELECT url FROM memes WHERE id_meme = MAX(id_meme);');
+    $last_meme->fetch();
+    var_dump($last_meme);
+}
+getLastMeme();
 ?>
