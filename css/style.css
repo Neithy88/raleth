@@ -47,21 +47,54 @@ table {
 	border-spacing: 0;
 }
 
+@font-face {
+	font-family: 'Impact';
+	src: url('../impact.ttf');
+}
 /************************************/
 /***************END OF CSS RESET*****/
 /************************************/
+header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	background: grey;
+}
+
+header ul{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+
+.templatelist form{
+	margin-bottom: 20px;
+}
+
+#boutonupload{
+	margin-left: 10px;
+}
+
+.templatelist{
+	padding: 75px;
+	padding-top: 150px;
+	padding-bottom: 0;
+}
 
 /*ul des templates dans la HomeView*/
 .templates{
+	border: solid 2px black;
+	padding: 5px;
 	display: flex;
-	flex-wrap: wrap;
-	width: 30%;
+	overflow: scroll;
 }
 
 /*li des templates dans la HomeView*/
 .mini-templates{
 	display: flex;
-	margin-right: 2px;
+	margin-right: 5px;
 }
 
 .mini-templates img{
@@ -69,6 +102,67 @@ table {
 	height: 70px;
 }
 
-/* *{
-	background: rgb(0,0,0,0.1);
-} */
+.generator{
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	height: 500px;
+	background: rgba(0,0,0,0.4);
+	position: relative;
+}
+
+.generatorinner{
+	display: flex;
+	width: 95%;
+	margin: auto;
+	padding: 10px 0;
+}
+
+.flexdiv{
+	flex: 1;
+}
+
+#plandetravail{
+	position: relative;
+}
+
+#plandetravail p{
+	font-family: 'Impact', sans-serif;
+	font-size: 50px;
+	color: white;
+	text-shadow: 2px 2px 3px black;
+}
+
+#meme_genere{
+	height: auto;
+	max-height: 600px;
+}
+
+.textehaut{
+	position: absolute;
+	top: 0px;
+	left: 5%;
+}
+
+.textebas{
+	position: absolute;
+	bottom: 0px;
+	left: 5%;
+}
+
+#generer{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: grey;
+}
+
+body{
+	min-height: 2000px;
+}

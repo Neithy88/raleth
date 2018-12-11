@@ -5,6 +5,3 @@ $host = "localhost";
 $dbname = "mydbname;charset=utf8";
 $user = "root";
 $pass = "";
-
-?>
-

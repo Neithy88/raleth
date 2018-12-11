@@ -4,13 +4,21 @@ include('info.php');
 
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass); 
 
-
 function getAllTemplates(){
         global $dbh;
     
         $get_templates = $dbh->prepare('SELECT * FROM templates');
         $get_templates->execute();
         return $get_templates->fetchAll();
+}
+
+function getOneTemplate($id_template){
+    global $dbh;
+
+    $get_one_template = $dbh->prepare('SELECT url FROM templates WHERE id_template=?;');
+    $get_one_template->execute([$id_template]);
+
+    return $get_one_template->fetchAll();
 }
 
 function addTemplate($nom, $url){
@@ -23,11 +31,10 @@ function addTemplate($nom, $url){
 function getLastMeme(){
     global $dbh;
 
-    $last_meme = $dbh->query('SELECT MAX(id_meme) AS maxid, url FROM memes;');
-    $last_meme = $last_meme->fetchAll();
-    var_dump($last_meme);
-    
-    
+    $last_meme = $dbh->query('SELECT * FROM memes;');
+    $test = $last_meme->fetchAll();
 }
+
 getLastMeme();
+
 ?>
