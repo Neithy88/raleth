@@ -23,9 +23,14 @@ function addTemplate($nom, $url){
 function getLastMeme(){
     global $dbh;
 
-    $last_meme = $dbh->query('SELECT url FROM memes WHERE id_meme = MAX(id_meme);');
-    $last_meme->fetch();
-    var_dump($last_meme);
+    $last_meme = $dbh->query('SELECT MAX(id_meme) AS oui FROM memes;');
+    while ($oui=$last_meme->fetch()){
+        $oui = $oui['oui'];
+    }
+
+    $jean = $dbh->query('SELECT url FROM memes WHERE id_meme = '.$oui.';');
+    $jean->fetch();
+    var_dump($jean);
 }
 getLastMeme();
 ?>
