@@ -7,7 +7,6 @@ $get_all_templates = getAllTemplates();
 $upload_status = "Vous pouvez ajouter vos propres templates !";
 
 if(isset($_GET['id_template'])){
-    echo $_GET['id_template'];
     $mytemp = getOneTemplate($_GET['id_template']);
 }
 
@@ -19,7 +18,7 @@ if(isset($_FILES['fichier'])) {
     $ext = $path_parts['extension'];
 
     if($ext !== "jpg" && $ext !== "gif" && $ext !== "png" && $ext !== "svg"){
-        echo "format non valide";
+        $upload_status = "format non valide";
     }
     else{
         if(move_uploaded_file($temp_chemin, $_dossier . $_fichier)) {

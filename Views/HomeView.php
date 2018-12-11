@@ -8,7 +8,7 @@ include('header.php');
 
 <div class="templatelist">
 
-    <form method="POST" action="index.php" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data">
         
         <input type="file" name="fichier">
         <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
@@ -22,7 +22,7 @@ include('header.php');
         <ul class="templates"><?php
                 foreach ($get_all_templates as $value) {?>
                     <li class="mini-templates" name="id_template">
-                        <a class="" href="<?=$base_url?>Home/<?=$value['id_template']?>">
+                        <a class="temp_anchors" id="<?=$value['id_template']?>" href="<?=$base_url . 'Home/' . $value['id_template']?>">
                             <img src="<?=$base_url.$value['url']?>" alt="<?=$value['nom']?>">
                         </a>
                     </li>
@@ -38,7 +38,7 @@ include('header.php');
         <div id="plandetravail" class="flexdiv">
             <img id="meme_genere" src="<?php foreach ($mytemp as $value) {
                 echo $base_url.$value['url'];
-            }?>" alt="mème">
+            }?>" alt="meme">
             <div class="textehaut">
                 <p id="textehaut"></p>
             </div>
