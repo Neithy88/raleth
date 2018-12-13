@@ -122,6 +122,12 @@ header ul{
 	flex: 1;
 }
 
+@media (max-width: 576px){
+	.generatorinner{
+		display: block;
+	}
+}
+
 #plandetravail{
 	position: relative;
 }
@@ -139,16 +145,28 @@ header ul{
 	margin-right: auto;
 }
 
-.textehaut{
+#mymeme{
+	width: fit-content;
+	height: auto;
+}
+
+#textehaut{
+	display: block;
 	position: absolute;
 	top: 0px;
 	left: 5%;
 }
 
-.textebas{
+#textebas{
+	display: block;
 	position: absolute;
 	bottom: 0px;
 	left: 5%;
+}
+
+#positioner{
+	overflow: hidden;
+	height: 100px;
 }
 
 #generer{

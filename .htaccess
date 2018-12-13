@@ -7,3 +7,5 @@ RewriteRule ^(Home)/([0-9]+)$ index.php?page=$1&id_template=$2 [NC,L,QSA]
 
 RewriteRule ^(OneMeme)$ index.php?page=$1 [NC,L,QSA]
 RewriteRule ^(OneMeme)/([0-9]+)$ index.php?page=$1&id_template=$2 [NC,L,QSA]
+
+RewriteRule ^(Display)$ index.php?page=$1 [NC,L,QSA]
