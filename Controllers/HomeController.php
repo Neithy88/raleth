@@ -3,19 +3,25 @@
 
 include('Models/Home.php');
 
-
 $get_all_templates = getAllTemplates();
+$upload_status = "Vous pouvez ajouter vos propres templates !";
+
+if(isset($_GET['id_template'])){
+    $mytemp = getOneTemplate($_GET['id_template']);
+}
+else{
+    $mytemp = getOneTemplate(1);
+}
 
 if(isset($_FILES['fichier'])) {
     $_dossier = 'img/';
     $temp_chemin = $_FILES['fichier']['tmp_name'];
     $_fichier = basename ($_FILES['fichier']['name']);
-
     $path_parts = pathinfo($_fichier);
     $ext = $path_parts['extension'];
 
     if($ext !== "jpg" && $ext !== "gif" && $ext !== "png" && $ext !== "svg"){
-        echo "format non valide";
+        $upload_status = "format non valide";
     }
     else{
         if(move_uploaded_file($temp_chemin, $_dossier . $_fichier)) {
@@ -30,17 +36,21 @@ if(isset($_FILES['fichier'])) {
             }
             if($test === 0){
                 addTemplate($nom_fichier, $url);
-                echo 'upload effectué avec succès';
+                $upload_status = 'upload effectué avec succès';
             }
             else{
-                echo "un fichier avec un nom similaire existe déjà. ";
+                $upload_status = "un fichier avec un nom similaire existe déjà. ";
             }
         }
         else {
-            echo "Echec de l'envoi";
+            $upload_status = "Echec de l'envoi";
         }
     }
 }
+
+$get_all_templates = getAllTemplates();
+
+
 
 include('Views/HomeView.php');
 

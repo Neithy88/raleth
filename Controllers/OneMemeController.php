@@ -3,13 +3,6 @@
 
 include('Models/OneMeme.php');
 
-
-
-// echo $path_parts['dirname'], "\n";
-// echo $path_parts['basename'], "\n";
-// echo $path_parts['extension'], "\n";
-// echo $path_parts['filename'], "\n"; // depuis PHP 5.2.0
-
 $get_url_template = templateUrl($_GET['id_template']);
 foreach ($get_url_template as $value){
     $url_template = $value['url'];
@@ -37,7 +30,7 @@ switch ($ext) {
     $black = imagecolorallocate($batou, 0, 0, 0);
 
     // Set Path to Font File
-    $font_path = 'C:\xampp\htdocs\raleth\impact.ttf';
+    $font_path = '/html/raleth/impact.ttf';
 
     // Set Text to Be Printed On Image
     $text = "This is a batou!";
@@ -54,5 +47,3 @@ switch ($ext) {
     imagedestroy($batou);
 
 include('Views/OneMemeView.php');
-
-?>

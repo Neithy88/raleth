@@ -25,5 +25,3 @@ function addMeme($meme_nom, $id_template){
     
     return $meme_url;
 }
-
-?>

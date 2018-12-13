@@ -4,7 +4,6 @@ include('info.php');
 
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass); 
 
-
 function getAllTemplates(){
         global $dbh;
     
@@ -13,24 +12,18 @@ function getAllTemplates(){
         return $get_templates->fetchAll();
 }
 
+function getOneTemplate($id_template){
+    global $dbh;
+
+    $get_one_template = $dbh->prepare('SELECT url, id_template FROM templates WHERE id_template=?;');
+    $get_one_template->execute([$id_template]);
+
+    return $get_one_template->fetchAll();
+}
+
 function addTemplate($nom, $url){
     global $dbh;
     
     $add_template = $dbh->prepare('INSERT INTO templates(nom, url) VALUES (?,?);');
     $add_template->execute([$nom, $url]);
 }
-
-// function getLastMeme(){
-//     global $dbh;
-
-//     $last_meme = $dbh->query('SELECT MAX(id_meme) AS oui FROM memes;');
-//     while ($oui=$last_meme->fetch()){
-//         $oui = $oui['oui'];
-//     }
-
-//     $jean = $dbh->query('SELECT url FROM memes WHERE id_meme = '.$oui.';');
-//     $jean->fetch();
-//     var_dump($jean);
-// }
-// getLastMeme();
-?>
