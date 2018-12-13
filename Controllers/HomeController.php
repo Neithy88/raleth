@@ -9,6 +9,9 @@ $upload_status = "Vous pouvez ajouter vos propres templates !";
 if(isset($_GET['id_template'])){
     $mytemp = getOneTemplate($_GET['id_template']);
 }
+else{
+    $mytemp = getOneTemplate(1);
+}
 
 if(isset($_FILES['fichier'])) {
     $_dossier = 'img/';

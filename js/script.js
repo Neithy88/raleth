@@ -10,7 +10,6 @@ generer.addEventListener("submit", function(e){
     xhttp.send();
 });
 
-
 //Code pour placer les éléments de texte sur l'image
 var inputhaut = document.getElementById('input_txt_haut');
 var inputbas = document.getElementById('input_txt_bas');
@@ -27,35 +26,38 @@ inputhaut.addEventListener('input', function(e) {
     textehaut.innerHTML = inputhaut.value;
 });
 
+//set image width to half of container
+var generatorinner = document.getElementsByClassName('generatorinner');
+var image = document.getElementById('meme_genere');
 
-//Code pour resizer l'image en fonction de la taille du container
+
 function imageResize(){
-    var generatorinner = document.getElementsByClassName('generatorinner');
-    var genwidth = parseFloat(window.getComputedStyle(generatorinner[0]).width)/2;
-    var image = document.getElementById('meme_genere');
-    var imgheight = parseInt(window.getComputedStyle(image).height);
-    var flexdiv = document.getElementsByClassName('flexdiv');
-    flexdiv[0].style.maxWidth = genwidth+"px";
+    if(image.complete === true){
+        var innerhalf = parseInt(window.getComputedStyle(generatorinner[0]).width)/2;
+        var innerheight = parseInt(window.getComputedStyle(generatorinner[0]).height);
+        var compimageh = parseInt(window.getComputedStyle(image).height);
+        var compimagew = parseInt(window.getComputedStyle(image).width);
 
-    if(image.complete == true){
-        console.log(genwidth);
-        if (image.width > genwidth) {
-            image.width = genwidth-20;
-            imgheight = parseInt(window.getComputedStyle(image).height);
-            if (imgheight > 430) {
-            image.style.width = "auto";
-            image.style.height = "430px";
+        if(compimagew >= innerhalf){
+            image.style.width = innerhalf+"px";
+            image.style.height = "auto";
+            compimageh = parseInt(window.getComputedStyle(image).height);
+            compimagew = parseInt(window.getComputedStyle(image).width);
+
+            if(compimageh >= innerheight){
+                image.style.height = innerheight+"px";
+                image.style.width = "auto";
+
             }
         }
-        else if (imgheight > 430){
+        else if(compimageh >= innerheight){
+            image.style.height = innerheight+"px";
             image.style.width = "auto";
-            image.style.height = "430px";
         }
     }
 }
-// Donner des heights et width en fonction de la taille du plan de travail, pas de genwidth ou fixe en pixels.
+    
 imageResize();
-
-window.onresize = function() {
+window.onresize = function(){
     imageResize();
 }

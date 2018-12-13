@@ -115,6 +115,7 @@ header ul{
 	width: 95%;
 	margin: auto;
 	padding: 10px 0;
+	height: 420px;
 }
 
 .flexdiv{
@@ -133,7 +134,9 @@ header ul{
 }
 
 #meme_genere{
-	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .textehaut{
@@ -164,3 +167,7 @@ footer{
 body{
 	min-height: 2000px;
 }
+/* 
+*{
+	background: rgba(0,0,0,0.1);
+} */
