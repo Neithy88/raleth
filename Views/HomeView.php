@@ -5,15 +5,14 @@ $title="Meme Generator";
 include('header.php');
 
 ?>
-
 <div class="templatelist">
 
     <form method="POST" action="" enctype="multipart/form-data">
         
-        <input type="file" name="fichier">
+        <input class="boutonchoose" type="file" name="fichier">
         <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <input id="boutonupload" type="submit" name="envoyer" value="Mettre en ligne">
-        <span><?=$upload_status?></span>
+        <span class="textnone"><?=$upload_status?></span>
     </form>
 
     <?php
@@ -43,14 +42,15 @@ include('header.php');
                 <p id="textebas"></p>
             </div>
             <div class="outils flexdiv">
-                <input id="input_txt_haut" type="" placeholder="Entrez le texte du haut ici">
-                <input id="input_txt_bas" type="" placeholder="Entrez le texte du bas ici">
+                <input id="input_txt_haut" type="texteh" placeholder="Entrez le texte du haut ici">
+                <input id="input_txt_bas" type="texteb" placeholder="Entrez le texte du bas ici">
+                <input type="submit" value="Générer" class="boutton">
             </div>
             <input type="hidden" name="id_template" id="template_value" value="<?php foreach ($mytemp as $value) {
             echo $value['id_template'];
             }
             ?>">
-        <input type="submit" value="Générer">
+        
         </div>
     </div>
 </form>
