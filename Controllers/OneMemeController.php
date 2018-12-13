@@ -30,7 +30,7 @@ switch ($ext) {
     $black = imagecolorallocate($batou, 0, 0, 0);
 
     // Set Path to Font File
-    $font_path = '/html/raleth/impact.ttf';
+    $font_path = 'C:\xampp\htdocs\raleth\impact.ttf';
 
     // Set Text to Be Printed On Image
     $text = "This is a batou!";
