@@ -2,36 +2,53 @@
 var generer = document.getElementById('generer');
 var template_id = document.getElementById('template_value');
 
-
 generer.addEventListener("submit", function(e){
+    var vatxthaut = document.getElementById('input_txt_haut').value;
+    var vatxtbas = document.getElementById('input_txt_bas').value;
+    var color = document.getElementById('color').value;
+    var fsz = parseInt(document.getElementById('fsz').value);
+    console.log(fsz);
     var xhttp = new XMLHttpRequest();
     e.preventDefault();
     xhttp.open("POST", 'http://localhost/raleth/OneMeme/'+template_id.value, false);
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send();
+    xhttp.send('txthaut='+vatxthaut+'&txtbas='+vatxtbas+'&color='+color+'&fsz='+fsz);
     generer.submit();
 });
 
 //Code pour placer les éléments de texte sur l'image
 var inputhaut = document.getElementById('input_txt_haut');
 var inputbas = document.getElementById('input_txt_bas');
-var textebas = document.getElementById('textebas');
-var textehaut = document.getElementById('textehaut');
+var txth = document.getElementById('textehaut');
+var txtb = document.getElementById('textebas');
 
 inputbas.addEventListener('input', function(e) {
     e.preventDefault();
-    textebas.innerHTML = inputbas.value;
+    txtb.innerHTML = inputbas.value;
 });
 
 inputhaut.addEventListener('input', function(e) {
     e.preventDefault();
-    textehaut.innerHTML = inputhaut.value;
+    txth.innerHTML = inputhaut.value;
 });
+
+
+
+
 
 //set image width to half of container
 var generatorinner = document.getElementsByClassName('generatorinner');
-var txth = document.getElementById('textehaut');
-var txtb = document.getElementById('textebas');
+
+var fsz = document.getElementById('fsz');
+fsz.addEventListener('change', function(){
+    txth.style.fontSize = fsz.value + "px";
+    txtb.style.fontSize = fsz.value + "px";
+});
+var color = document.getElementById('color');
+color.addEventListener('change', function(){
+    txth.style.color = color.value;
+    txtb.style.color = color.value;
+});
 var image = document.getElementById('meme_genere');
 var positioner = document.createElement("div");
 positioner.setAttribute("id", "positioner");
@@ -39,7 +56,7 @@ var pdt = document.getElementById('plandetravail');
 pdt.appendChild(positioner);
 positioner.style.marginLeft = "auto";
 positioner.style.marginRight = "auto";
-positioner.style.position = "relative"; 
+positioner.style.position = "relative";
 
 
 function imageResize(){
@@ -78,11 +95,22 @@ function imageResize(){
 
 imageResize();
 window.onresize = function(){
+    var innerhalf = parseInt(window.getComputedStyle(generatorinner[0]).width)/2;
+    image.style.width = innerhalf+"px";
+    image.style.height = "auto";
     imageResize();
 }
 
-// in js detect overflow vertical
-// then store parseint de font size
-// s'il y a overflow, textehaut.style.font-size = fontsize - 5 + "px";
-// puis fontsize = parseInt(textehaut.style.fontSize);
-// tout ça dans un event listener si ya overflow vertical 
+txth.style.top;
+function curseur(){
+    var y = MouseEvent.clientX;
+    var x = MouseEvent.clientX;
+    txth.style.position = 'absolute';
+    txth.style.top = x + 'px';
+    txth.style.left = y + 'px';
+}
+
+positioner.addEventListener("mousemove", function(){
+    console.log(MouseEvent.clientX);
+    curseur();
+});
