@@ -5,15 +5,14 @@ $title="Meme Generator";
 include('header.php');
 
 ?>
-
 <div class="templatelist">
 
     <form method="POST" action="" enctype="multipart/form-data">
         
-        <input type="file" name="fichier">
+        <input class="boutonchoose" type="file" name="fichier">
         <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <input id="boutonupload" type="submit" name="envoyer" value="Mettre en ligne">
-        <span><?=$upload_status?></span>
+        <span class="textnone"><?=$upload_status?></span>
     </form>
 
     <?php
@@ -65,7 +64,7 @@ include('header.php');
             echo $value['id_template'];
             }
             ?>">
-        <input type="submit" value="Générer">
+        
         </div>
     </div>
 </form>

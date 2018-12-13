@@ -35,7 +35,7 @@ switch ($ext) {
     }
 
     // Set Path to Font File
-    $font_path = '/var/www/html/raleth/impact.ttf';
+    $font_path = 'C:\xampp\htdocs\raleth\impact.ttf';
 
     // Set Text to Be Printed On Image
     if(isset($_POST['txthaut'])){

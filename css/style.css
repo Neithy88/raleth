@@ -59,7 +59,8 @@ header{
 	top: 0;
 	width: 100%;
 	height: 50px;
-	background: grey;
+	background:#cccccc;
+	font-family: 'Montserrat', sans-serif;
 }
 
 header ul{
@@ -74,7 +75,11 @@ header ul{
 }
 
 #boutonupload{
-	margin-left: 10px;
+	bottom: 250px;
+	background: #70B0D0;
+	width: 130px;
+	height: 40px;
+	border-radius: 8px;
 }
 
 .templatelist{
@@ -106,8 +111,9 @@ header ul{
 	margin-right: auto;
 	width: 90%;
 	height: 450px;
-	background: rgba(0,0,0,0.4);
+	background: #cccccc;
 	position: relative;
+	margin-top: 30px;
 }
 
 .generatorinner{
@@ -121,12 +127,15 @@ header ul{
 .flexdiv{
 	flex: 1;
 }
-
-@media (max-width: 576px){
-	.generatorinner{
-		display: block;
-	}
+.boutton{
+	bottom: 100px;
+	background: #70B0D0;
+	width: 130px;
+	height: 40px;
+	border-radius: 8px;
 }
+
+
 
 #plandetravail{
 	position: relative;
@@ -149,19 +158,35 @@ header ul{
 	width: fit-content;
 	height: auto;
 }
+#input_txt_haut{
+	width: 250px;
+	height: 30px;
+	border-radius: 8px;
+	margin-top: 20px;
+	border: none;
+}
 
+#input_txt_bas{
+	width: 250px;
+	height: 30px;
+	border-radius: 8px;
+	margin-top: 20px;
+	border: none;
+}
 #textehaut{
 	display: block;
 	position: absolute;
 	top: 0px;
 	left: 5%;
-}
+  }
+
 
 #textebas{
 	display: block;
 	position: absolute;
 	bottom: 0px;
 	left: 5%;
+
 }
 
 #positioner{
@@ -177,17 +202,60 @@ header ul{
 	position: relative;
 }
 
-footer{
+
+.stylefooter{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background: grey;
+	background: #cccccc;
+	height: 50px;
+	font-family: 'Montserrat', sans-serif;
 }
-
 body{
-	min-height: 2000px;
+	min-height: 1080px;
 }
 
 /* *{
 	background: rgba(0,0,0,0.1);
 } */
+
+@media (max-width: 576px){
+	.generator{
+		height: 700px;
+	}
+	.generatorinner{
+		display: block;
+		padding-bottom: 700px;
+		
+	}
+	.boutton{
+		display: block;
+		width: 50%;
+		margin-left:auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+	}
+	#input_txt_bas{
+		width: 100%;
+		margin-left:auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+	}
+	#input_txt_haut{
+		width: 100%;
+		margin-left:auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+	}
+
+	#boutonupload{
+		margin-top: 5px;
+
+	}
+	.textnone{
+		display: none;
+	}
+}

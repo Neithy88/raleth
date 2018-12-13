@@ -1,6 +1,5 @@
-
 <footer>
-    <ul>
+    <ul class="stylefooter">
         <li>Bilel</li>
         <li>Alexandra</li>
         <li>Lucas</li>
