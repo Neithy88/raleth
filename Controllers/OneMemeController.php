@@ -26,20 +26,33 @@ switch ($ext) {
     break;
 }
 
-    // Allocate A Color For The Text
-    $black = imagecolorallocate($batou, 0, 0, 0);
+    // Allocate A Color For The Text if pour texte blanc ou noir
+    if($_POST['color'] === 'Black'){
+        $color = imagecolorallocate($batou, 0, 0, 0);
+    }
+    if($_POST['color'] === 'White'){
+        $color = imagecolorallocate($batou, 255, 255, 255);
+    }
 
     // Set Path to Font File
     $font_path = '/var/www/html/raleth/impact.ttf';
 
     // Set Text to Be Printed On Image
-    $texthaut = "This is a batou!";
-    $textbas = "mais en fait non";
+    if(isset($_POST['txthaut'])){
+        $texthaut = $_POST['txthaut'];
+    }
+
+    if(isset($_POST['txtbas'])){
+        $textbas = $_POST['txtbas'];
+    }
+
+    if(isset($_POST['fsz'])){
+        $fsz = $_POST['fsz'];
+    }
 
     // Print Text On Image
-    imagettftext($batou, 30, 0, 0, 200, $black, $font_path, $texthaut);
-    imagettftext($batou, 30, 0, 0, 300, $black, $font_path, $textbas);
-    // $_GET['nom_meme']
+    imagettftext($batou, $fsz, 0, 0, 200, $color, $font_path, $texthaut);
+    imagettftext($batou, $fsz, 0, 0, 300, $color, $font_path, $textbas);
     $meme = addMeme("non", $_GET['id_template']);
 
     // Send Image to Browser

@@ -101,16 +101,20 @@ window.onresize = function(){
     imageResize();
 }
 
-txth.style.top;
-function curseur(){
-    var y = MouseEvent.clientX;
-    var x = MouseEvent.clientX;
-    txth.style.position = 'absolute';
-    txth.style.top = x + 'px';
-    txth.style.left = y + 'px';
-}
+console.log(txth.style.top);
+console.log(txth.style.left);
 
-positioner.addEventListener("mousemove", function(){
-    console.log(MouseEvent.clientX);
-    curseur();
-});
+function curseurh(event){
+        var y = event.clientY;
+        var x = event.clientX;
+        var oui = txth.style.top - y;
+        console.log(oui);
+        // txth.style.top = y + 'px';
+        // txth.style.left = x + 'px'; 
+}
+function curseurb(event){
+    var y = event.clientX;
+    var x = event.clientY;
+    // txth.style.top = y + 'px';
+    // txth.style.left = x + 'px';
+}

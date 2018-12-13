@@ -35,16 +35,31 @@ include('header.php');
 <form action="<?=$base_url.'Display'?>" method="POST" id="generer">
     <div class="generator">
         <div class="generatorinner">
-            <div id="plandetravail" class="flexdiv">
+            <div onmousemove="curseurh(event)" id="plandetravail" class="flexdiv">
                 <img id="meme_genere" src="<?php foreach ($mytemp as $value) {
                     echo $base_url.$value['url'];
                 }?>" alt="meme">
                 <p id="textehaut"></p>
-                <p id="textebas"></p>
+                <p onmousemove="curseurb(event)" id="textebas"></p>
             </div>
             <div class="outils flexdiv">
-                <input id="input_txt_haut" type="" placeholder="Entrez le texte du haut ici">
-                <input id="input_txt_bas" type="" placeholder="Entrez le texte du bas ici">
+                <input id="input_txt_haut" type="text" placeholder="Entrez le texte du haut ici" name="txthaut">
+                <input id="input_txt_bas" type="text" placeholder="Entrez le texte du bas ici" name="txtbas">
+                <select name="color" id="color">
+                    <option value="">Couleur du texte</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                </select>
+                <select name="fsz" id="fsz">
+                    <option value="">Taille du texte</option>
+                    <?php
+                        for ($i=8; $i <= 50 ; $i++) {
+                            ?>
+                    <option value="<?=$i?>"><?=$i?></option>
+                    <?php
+                        }
+                    ?>
+                </select>
             </div>
             <input type="hidden" name="id_template" id="template_value" value="<?php foreach ($mytemp as $value) {
             echo $value['id_template'];
