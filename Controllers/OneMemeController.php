@@ -33,10 +33,12 @@ switch ($ext) {
     $font_path = '/var/www/html/raleth/impact.ttf';
 
     // Set Text to Be Printed On Image
-    $text = "This is a batou!";
+    $texthaut = "This is a batou!";
+    $textbas = "mais en fait non";
 
     // Print Text On Image
-    imagettftext($batou, 30, 0, 0, 200, $black, $font_path, $text);
+    imagettftext($batou, 30, 0, 0, 200, $black, $font_path, $texthaut);
+    imagettftext($batou, 30, 0, 0, 300, $black, $font_path, $textbas);
     // $_GET['nom_meme']
     $meme = addMeme("non", $_GET['id_template']);
 

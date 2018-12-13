@@ -32,36 +32,28 @@ include('header.php');
         </ul>
 </div>
 
-<div class="generator">
-
-    <div class="generatorinner">
-        <div id="plandetravail" class="flexdiv">
-            <img id="meme_genere" src="<?php foreach ($mytemp as $value) {
-                echo $base_url.$value['url'];
-            }?>" alt="meme">
-            <div id="textehaut">
-                <p class="textehaut"></p>
+<form action="<?=$base_url.'Display'?>" method="POST" id="generer">
+    <div class="generator">
+        <div class="generatorinner">
+            <div id="plandetravail" class="flexdiv">
+                <img id="meme_genere" src="<?php foreach ($mytemp as $value) {
+                    echo $base_url.$value['url'];
+                }?>" alt="meme">
+                <p id="textehaut"></p>
+                <p id="textebas"></p>
             </div>
-            
-            <p id="textebas"></p>
-        </div>
-        <div class="outils flexdiv">
-            <form action="" method="GET">
+            <div class="outils flexdiv">
                 <input id="input_txt_haut" type="" placeholder="Entrez le texte du haut ici">
                 <input id="input_txt_bas" type="" placeholder="Entrez le texte du bas ici">
-            </form>
+            </div>
+            <input type="hidden" name="id_template" id="template_value" value="<?php foreach ($mytemp as $value) {
+            echo $value['id_template'];
+            }
+            ?>">
+        <input type="submit" value="Générer">
         </div>
     </div>
-
-    <form action="<?=$base_url.'Display'?>" method="POST" id="generer">
-            <input type="hidden" name="id_template" id="template_value" value="<?php foreach ($mytemp as $value) {
-                echo $value['id_template'];
-            }
-                ?>">
-            <input type="submit" value="Générer">
-    </form>
-
-</div>
+</form>
 
 <?php
 include('footer.php');
