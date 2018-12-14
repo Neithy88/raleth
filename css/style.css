@@ -63,12 +63,66 @@ header{
 	font-family: 'Montserrat', sans-serif;
 }
 
-header ul{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 100%;
+/*debut de la navigation*/
+#navigation {
+    font-family: 'Montserrat', sans-serif;
+    
 }
+
+nav
+{
+    width: 100%;
+    background-color: #cccccc;
+    opacity: 0.70;
+    padding: 0; margin: 0;
+    text-align: center;
+}
+
+nav ul
+{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+nav li
+{
+    list-style-type: none;
+    display: inline;
+    font-weight:bold;
+}
+nav a
+{
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px 30px;
+    color: black;
+    margin: 0 30px;
+}
+.menu-Home:hover
+{
+    border-top: 5px solid;
+    background-color: grey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+}  
+.menu-Contact:hover
+{
+    border-top: 5px solid; 
+    background-color: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+}
+.menu-apropos:hover
+{
+    border-top: 5px solid; 
+    background-color:grey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+}
+/*fin de la navigation*/
 
 .templatelist form{
 	margin-bottom: 20px;
@@ -80,6 +134,7 @@ header ul{
 	width: 130px;
 	height: 40px;
 	border-radius: 8px;
+
 }
 
 .templatelist{
@@ -126,15 +181,25 @@ header ul{
 
 .flexdiv{
 	flex: 1;
+	position: relative;
 }
+/* this is button générer ! */
 .boutton{
-	bottom: 100px;
 	background: #70B0D0;
 	width: 130px;
 	height: 40px;
 	border-radius: 8px;
+	position: absolute;
+	bottom: 0;
+	left:70%;
+	
 }
-
+#color{
+	margin-top: 2%;
+}
+#fsz{
+	margin-top: 2%;
+}
 
 
 #plandetravail{
@@ -164,6 +229,7 @@ header ul{
 	border-radius: 8px;
 	margin-top: 20px;
 	border: none;
+	
 }
 
 #input_txt_bas{
@@ -172,6 +238,7 @@ header ul{
 	border-radius: 8px;
 	margin-top: 20px;
 	border: none;
+
 }
 #textehaut{
 	display: block;
@@ -214,30 +281,32 @@ header ul{
 	height: 50px;
 	font-family: 'Montserrat', sans-serif;
 }
-body{
-	min-height: 1080px;
-}
+
 
 /* *{
 	background: rgba(0,0,0,0.1);
 } */
 
 @media (max-width: 576px){
+	nav a{
+		margin : 0;
+		padding: 10px 20px;
+	}
 	.generator{
-		height: 700px;
+		height: 500px;
+		
 	}
 	.generatorinner{
 		display: block;
-		padding-bottom: 700px;
-		
+				
 	}
 	.boutton{
 		display: block;
 		width: 50%;
-		margin-left:auto;
-		margin-right: auto;
-		margin-bottom: 10px;
+		left:135px;
+		bottom: 0;
 	}
+
 	#input_txt_bas{
 		width: 100%;
 		margin-left:auto;
@@ -259,3 +328,10 @@ body{
 		display: none;
 	}
 }
+@media only screen and (min-width: 768px) {
+	/* tablettes et ordinateurs */
+	}
+	.generator{
+		height: 400px;
+		
+	}
