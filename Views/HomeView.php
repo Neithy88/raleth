@@ -59,6 +59,7 @@ include('header.php');
                         }
                     ?>
                 </select>
+                <input type="submit" value="Générer" class="boutton"> 
             </div>
             <input type="hidden" name="id_template" id="template_value" value="<?php foreach ($mytemp as $value) {
             echo $value['id_template'];
